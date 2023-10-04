@@ -1,7 +1,4 @@
-# Tauri + Yew
+# Stargazer
+A small yew + tauri app made for my starfinder campaign for an interactive starmap
 
-This template should help get you started developing with Tauri and Yew.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+serves primarily as a way for me to learn HTML, Rust and CSS
