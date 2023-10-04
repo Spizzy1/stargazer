@@ -3,6 +3,7 @@ use serde_wasm_bindgen::to_value;
 use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::spawn_local;
 use yew::prelude::*;
+use web_sys::{MouseEvent, console};
 
 #[wasm_bindgen]
 extern "C" {
@@ -17,6 +18,7 @@ struct GreetArgs<'a> {
 
 #[function_component(App)]
 pub fn app() -> Html {
+    let ismousedown = use_state(|| false);
     let greet_input_ref = use_node_ref();
 
     let name = use_state(|| String::new());
@@ -58,16 +60,24 @@ pub fn app() -> Html {
             );
         })
     };
+    let mouse_move = {
+        Callback::from(move |e: MouseEvent|{
+            console::log_1(&format!("({}, {})", e.client_x(), e.client_y()).into());
+            
+        })
+    };
+    let mousedown = {
+        Callback::from(move |e : MouseEvent|{
+            ismousedown.set(true);
+        })
+    };
 
     html! {
         <main class="container">
-            <div class="row">
-                <a href="https://tauri.app" target="_blank">
-                    <img src="public/tauri.svg" class="logo tauri" alt="Tauri logo"/>
-                </a>
-                <a href="https://yew.rs" target="_blank">
-                    <img src="public/yew.png" class="logo yew" alt="Yew logo"/>
-                </a>
+            <div class="starmap" onmousemove={mouse_move}>
+                <div class="full-starmap">
+                    <img src="public/realstar.svg" class="filterWhite"/>
+                </div>
             </div>
 
             <p>{"Click on the Tauri and Yew logos to learn more."}</p>

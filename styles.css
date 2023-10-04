@@ -17,6 +17,30 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.starmap{
+  border-radius: 25px;
+  border: 2px solid #603499;
+  width: 800px;
+  height: 800px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  
+
+}
+.full-starmap{
+  background-size: 100%;
+  width: 1600px;
+  height: 1600px;
+  background-color: #242829;
+
+
+
+}
+.filterWhite{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
+}
+
 .container {
   margin: 0;
   padding-top: 10vh;
